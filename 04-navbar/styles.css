@@ -234,6 +234,9 @@ nav {
     display: none;
   }
   .links {
+    /* 중요한 추가 */
+    /* 미디어쿼리를 설정한 후에는 자동높이를 설정해줘야함 */
+    /* show-links의 높이값에 영향을 받아 이 자동높이가 없으면 레이아웃에 이슈가 발생함 */
     height: auto;
     display: flex;
   }
