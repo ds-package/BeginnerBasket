@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="/favicon_io/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <title>menu</title>
+  </head>
+  <body>
+    <section class="menu">
+      <!-- title -->
+      <div class="title">
+        <h2>our menu</h2>
+      </div>
+      <!-- filter buttons-->
+      <div class="btn-container">
+        <button class="filter-btn" type="button" data-id="all">ALL</button>
+        <button class="filter-btn" type="button" data-id="cute">CUTE</button>
+        <button class="filter-btn" type="button" data-id="cool">COOL</button>
+        <button class="filter-btn" type="button" data-id="all">HOT</button>
+      </div>
+      <!-- menu items -->
+      <div class="section-center">
+        <!-- single item -->
+        <article class="menu-item">
+          <img src="/assets/img-01.jpg" class="photo" alt="menu item" />
+          <div class="item-info">
+            <header>
+              <h3>cute cat</h3>
+              <h3 class="price">$12</h3>
+            </header>
+            <p class="item-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum quae,
+              amet fugit aliquam alias assumenda quos enim vitae laborum
+              veritatis quas, obcaecati quasi mollitia qui temporibus officia
+              officiis. Adipisci, id?
+            </p>
+          </div>
+        </article>
+        <!-- end of single item -->
+      </div>
+    </section>
+    <!-- javascript -->
+    <script src="/08-menu/app.js"></script>
+  </body>
+</html>
