@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="/favicon_io/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <title>video</title>
+  </head>
+  <body>
+    <!-- preloader -->
+    <div class="preloader">
+      <img src="/assets/preloader3.gif" alt="preloader" />
+    </div>
+    <!-- Header -->
+    <header>
+      <video class="video-container" controls muted autoplay loop>
+        <source src="/assets/vedio-01.mp4" type="video/mp4" />
+      </video>
+      <h1>
+        Time and psychiatry <br />
+        development room
+      </h1>
+      <!-- video switch -->
+      <button class="switch-btn">
+        <span class="switch"></span>
+        <span> play </span>
+        <span> pause </span>
+      </button>
+    </header>
+
+    <!-- javascript -->
+    <script src="/09-video/app.js"></script>
+  </body>
+</html>
