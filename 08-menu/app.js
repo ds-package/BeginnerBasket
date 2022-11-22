@@ -47,38 +47,24 @@ const menu = [
     img: "/assets/img-06.jpg",
     desc: `Portland chicharrones ethical edison bulb, palo santo craft beer chia heirloom iPhone everyday`,
   },
+
+  {
+    id: 7,
+    title: "null",
+    category: "cool",
+    price: 99.99,
+    img: "/assets/image-cat.jpeg",
+    desc: `Portland chicharrones ethical edison bulb, palo santo craft beer chia heirloom iPhone everyday`,
+  },
 ];
 
 const sectionCenter = document.querySelector(".section-center");
-
-// 필터
-const filterBtns = document.querySelectorAll(".filter-btn");
+const container = document.querySelector(".btn-container");
 
 // 아이템 불러오기
 window.addEventListener("DOMContentLoaded", function () {
   displayMenuItems(menu);
-});
-
-// 필터 아이템
-// 와 여기는 치면서도 정말 잘 모르겠다, 해석이 필요함
-filterBtns.forEach(function (btn) {
-  btn.addEventListener("click", function (e) {
-    const category = e.currentTarget.dataset.id;
-    const menuCategory = menu.filter(function (menuItem) {
-      // console.log(menuItem.category);
-      if (menuItem.category === category) {
-        return menuItem;
-      }
-    });
-
-    // console.log(menuCategory);
-    // 카테고리가 "all"이 아니라면 "menuCategory"를 불러와?
-    if (category === "all") {
-      displayMenuItems(menu);
-    } else {
-      displayMenuItems(menuCategory);
-    }
-  });
+  displayMenuButtons();
 });
 
 function displayMenuItems(menuItems) {
@@ -102,4 +88,49 @@ function displayMenuItems(menuItems) {
   // 이걸 추가하니 데이터로 작성되어있는 메뉴가 쭉 나열되었는데 왜 됐는지 검색이 필요함
   displayMenu = displayMenu.join("");
   sectionCenter.innerHTML = displayMenu;
+}
+
+// 버튼과 버튼 내부 로직들 분리해서 관리하기
+function displayMenuButtons() {
+  // get only unique categories
+  const categories = menu.reduce(
+    function (values, item) {
+      if (!values.includes(item.category)) {
+        values.push(item.category);
+      }
+      return values;
+    },
+    ["all"]
+  );
+
+  // 하드코딩 X JS로 버튼 관리
+  const categoryBtns = categories
+    .map(function (category) {
+      return `<button class="filter-btn" type="button" data-id=${category}>${category}</button>`;
+    })
+    .join("");
+  container.innerHTML = categoryBtns;
+  // 필터
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  // 필터 아이템
+  // 와 여기는 치면서도 정말 잘 모르겠다, 해석이 필요함
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      const category = e.currentTarget.dataset.id;
+      const menuCategory = menu.filter(function (menuItem) {
+        // console.log(menuItem.category);
+        if (menuItem.category === category) {
+          return menuItem;
+        }
+      });
+
+      // console.log(menuCategory);
+      // 카테고리가 "all"이 아니라면 "menuCategory"를 불러와?
+      if (category === "all") {
+        displayMenuItems(menu);
+      } else {
+        displayMenuItems(menuCategory);
+      }
+    });
+  });
 }
