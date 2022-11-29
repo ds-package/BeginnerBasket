@@ -82,6 +82,9 @@ scrollLinks.forEach(function (link) {
     const fixedNav = navbar.classList.contains("fixed-nav");
 
     // 포지션이라는 아이를 변수로 지정, 섹션높이 - 네비게이션높이로 지정
+    // 높이값구하는 속성 설명한 블로그글
+    // https://dane-itview.tistory.com/entry/%EA%B7%B8%EB%9E%98%EC%84%9C-Top-%EC%9D%B4-%EC%96%B4%EB%94%98%EB%8D%B0-getBoundingClientRecttop-elementoffsetTop-%EC%B0%A8%EC%9D%B4%EC%A0%90
+    //https://mommoo.tistory.com/85
     let position = element.offsetTop - navHeight;
     console.log(navHeight);
     // fixedNav가 아닐 때 (즉 데스크탑일때)
