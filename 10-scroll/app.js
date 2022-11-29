@@ -58,3 +58,50 @@ window.addEventListener("scroll", function () {
 
 // ********** smooth scroll ************
 // select links
+
+const scrollLinks = document.querySelectorAll(".scroll-link");
+
+scrollLinks.forEach(function (link) {
+  link.addEventListener("click", function (e) {
+    // prevent default : 기본 방지(?)
+    // html 에서 a 태그나 submit 태그는 고유의 동작이 있다. 페이지를 이동시킨다거나 form 안에 있는 input 등을 전송한다던가 그러한 동작이 있는데 e.preventDefault 는 그 동작을 중단시킨다. : https://pa-pico.tistory.com/20
+
+    e.preventDefault();
+
+    // navigate to specific spot
+    // 한 섹션의 시작점 값을 구함
+    const id = e.currentTarget.getAttribute("href").slice(1);
+    const element = document.getElementById(id);
+    // calculate the heights : 높이계산하기
+    // 데스크탑 네비게이션 높이
+    const navHeight = navbar.getBoundingClientRect().height;
+
+    const containerHeight = linksContainer.getBoundingClientRect().height;
+
+    // css스타일 선택
+    const fixedNav = navbar.classList.contains("fixed-nav");
+
+    // 포지션이라는 아이를 변수로 지정, 섹션높이 - 네비게이션높이로 지정
+    let position = element.offsetTop - navHeight;
+    console.log(navHeight);
+    // fixedNav가 아닐 때 (즉 데스크탑일때)
+    if (!fixedNav) {
+      position = position - navHeight;
+    }
+    // 네비바의 높이가 특정숫자보다 클 때
+    // 이 조건문이 없을 때에는 링크 컨테이너 높이 만큼 덜 스크롤 되는 듯
+    // 원인 찾아보기.. 하...
+    if (navHeight > 73) {
+      position = position + containerHeight;
+    }
+
+    // 스크롤 위치를 위에서 정한 시작점으로 지정 top : position
+    window.scrollTo({
+      left: 0,
+      top: position,
+    });
+
+    // 메뉴 클릭 이벤트가 일어날 때 네비게이션 컨테이너의 높이 스타일을 0으로 만들어 접힐 수 있게 함
+    linksContainer.style.height = 0;
+  });
+});
