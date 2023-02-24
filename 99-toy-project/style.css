@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap");
+
+canvas {
+  width: 500px;
+  height: 720px;
+  border-radius: 6px;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #062315;
+}
+
+@media screen and (max-width: 670px) {
+  canvas {
+    width: 80%;
+    height: 720px;
+    border-radius: 6px;
+  }
+}
