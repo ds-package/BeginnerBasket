@@ -15,3 +15,5 @@ U | __")u \| ___"|/ U /"___|u      ___       | \ |"|     | \ |"|    \| ___"|/ U 
 ```
 
 할 것도 많은데 [뭘](https://www.freecodecamp.org/korean/news/javascript-projects-for-beginners/#flipper) 또 이런걸 ...
+
+- 느슨하게 돌아갑니다.
