@@ -1,6 +1,6 @@
 let canvas;
 let ctx;
-canvas = document.createElement("canvas");
+canvas = document.getElementById("canvas");
 ctx = canvas.getContext("2d");
 
 canvas.width = 500;
